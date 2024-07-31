@@ -1,7 +1,18 @@
+import Link from "next/link"
+import ShinyButton from "./magicui/shiny-button"
+
+
 export const SidebarItem = () => {
     return (
-        <div className="h-10 w-full bg-slate-400 hover:bg-white rounded-md">
-            Mathematics
+        <div className="p-5 h-full w-full overflow-y-auto">
+            <div className="mt-14 pt-5 flex flex-col gap-y-3">
+              <ShinyButton text="Shiny Button" className="h-[60px] hover:bg-white/10" />
+              <ShinyButton text="Shiny Button" className="h-[60px] hover:bg-white/10" />
+              <ShinyButton text="Shiny Button" className="h-[60px] hover:bg-white/10" />
+              <ShinyButton text="Shiny Button" className="h-[60px] hover:bg-white/10" />
+              <ShinyButton text="Shiny Button" className="h-[60px] hover:bg-white/10" />
+              <ShinyButton text="Shiny Button" className="h-[60px] hover:bg-white/10" />
+            </div>
         </div>
     )
 }

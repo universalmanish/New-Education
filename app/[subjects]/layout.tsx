@@ -4,7 +4,7 @@ import React from "react"
 
 const SubjectLayout = ({children}: {children: React.ReactNode}) => {
     return (
-        <div className="h-full w-full bg-black">
+        <div className="h-full w-full">
           <Sidebar/>
           <Navbar/>     
           {children}

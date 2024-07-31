@@ -2,7 +2,7 @@
 import ShimmerButton from "@/components/magicui/shimmer-button";
 import { useRouter } from "next/navigation";
 
-export function ShinyButton() {
+export function HomeShinyButton() {
   const router = useRouter()
   const onClick = () => {
     router.push("/mathematics")
