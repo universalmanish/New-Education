@@ -1,10 +1,10 @@
 import { integer, pgTable, serial, text, timestamp } from 'drizzle-orm/pg-core';
-export const usersTable = pgTable('users_table', {
-  id: serial('id').primaryKey(),
-  name: text('name').notNull(),
-  age: integer('age').notNull(),
-  email: text('email').notNull().unique(),
-});
+export const subject = pgTable("subject", {
+  id: serial("id").primaryKey().notNull(),
+  title: text("title").notNull(),
+  route: text("route").notNull(),
+  imageUrl: text("image_url")
+})
 
-export type InsertUser = typeof usersTable.$inferInsert;
-export type SelectUser = typeof usersTable.$inferSelect;
+export type InsertUser = typeof subject.$inferInsert;
+export type SelectUser = typeof subject.$inferSelect;
