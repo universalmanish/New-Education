@@ -1,7 +1,10 @@
 import { ShineCard } from "@/components/shine-card"
+import { db } from "@/db/db"
+import { getSubjects } from "@/db/queries"
+import { subject } from "@/db/schema"
 import { useSidebar } from "@/hooks/use-sidebar"
 
-const SubjectPage = () => {
+const SubjectPage = async () => {
     return (
         <div className="p-5 pt-[90px] bg-white dark:bg-black lg:pl-[350px]">
             <div className="flex items-center justify-center">

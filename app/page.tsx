@@ -1,8 +1,9 @@
 "use client"
 import { Background } from "@/components/Background";
 import { Navbar } from "@/components/navbar";
+import { db } from "@/db/db";
 
-export default function Home() {
+export default function Home() {  
   return (
     <div className="">
       <Navbar/>

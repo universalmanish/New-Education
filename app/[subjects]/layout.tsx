@@ -21,7 +21,7 @@ const SubjectLayout = ({ children }: { children: React.ReactNode }) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch("/api/subjects");
+        const response = await fetch("/api/1");
         if (!response.ok) {
           throw new Error('Failed to fetch data');
         }
