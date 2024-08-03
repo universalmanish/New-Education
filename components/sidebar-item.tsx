@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 
 type Props = {
     href: string,
+    onlyLevel?: boolean;
     data: {
         id: number;
         title: string;
@@ -13,14 +14,16 @@ type Props = {
 
 
 
-export const SidebarItem = ({href, data}: Props) => {
+export const SidebarItem = ({ href, data, onlyLevel }: Props) => {
     if (!data) return null  //Skeleton ShinyButton will be show here 
     return (
         <div className="p-5 h-full w-full overflow-y-auto">
             <div className="mt-14 pt-5 flex flex-col gap-y-3">
                 {data.map(sub => (
                     <Link key={sub.id} href={sub.route}>
-                        <ShinyButton text={sub.title} className={cn("h-[60px] w-full text-start hover:bg-white/10", href === sub.route ? "bg-white/20" : "" )} />
+                        <ShinyButton
+                            text={onlyLevel ? `Level  ${sub.title}` : sub.title}
+                            className={cn("h-[60px] w-full text-start hover:bg-white/10", href === sub.route ? "bg-white/20" : "")} />
                     </Link>
                 ))}
             </div>

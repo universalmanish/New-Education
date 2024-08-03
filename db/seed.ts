@@ -6,12 +6,12 @@ import { config } from 'dotenv';
 config({ path: '.env' });
 
 
-const sql = neon("postgresql://newDb_owner:DBq8tGQMSyo6@ep-soft-fog-a15rj9vb.ap-southeast-1.aws.neon.tech/newDb?sslmode=require");
+const sql = neon("postgresql://newDb_owner:I6K0afnkLsiG@ep-still-moon-a1ax7k8p.ap-southeast-1.aws.neon.tech/newDb?sslmode=require");
 const db = drizzle(sql);
 
 async function seed() {
   await db.insert(subject).values([
-    { title: 'Mathematics', route: 'math', imageUrl: 'https://example.com/math.jpg' },
+    { title: 'Mathematics', route: 'mathematics', imageUrl: 'https://example.com/math.jpg' },
     { title: 'Science', route: 'science', imageUrl: 'https://example.com/science.jpg' },
     { title: 'History', route: 'history', imageUrl: 'https://example.com/history.jpg' },
     { title: 'Literature', route: 'literature', imageUrl: 'https://example.com/literature.jpg' },
@@ -24,8 +24,9 @@ async function seed() {
   await db.insert(branch).values([
     { title: 'Algebra', route: 'algebra', imageUrl: 'https://example.com/algebra.jpg', subjectId: subjectIds[0] },
     { title: 'Geometry', route: 'geometry', imageUrl: 'https://example.com/geometry.jpg', subjectId: subjectIds[0] },
-    { title: 'Physics', route: 'physics', imageUrl: 'https://example.com/physics.jpg', subjectId: subjectIds[1] },
-    { title: 'Chemistry', route: 'chemistry', imageUrl: 'https://example.com/chemistry.jpg', subjectId: subjectIds[1] },
+    { title: 'Gravity', route: 'gravity', imageUrl: 'https://example.com/physics.jpg', subjectId: subjectIds[1] },
+    { title: 'Motion', route: 'motion', imageUrl: 'https://example.com/physics.jpg', subjectId: subjectIds[1] },
+    { title: 'Atomic Structure', route: 'atomic-structure', imageUrl: 'https://example.com/chemistry.jpg', subjectId: subjectIds[1] },
     { title: 'World History', route: 'world', imageUrl: 'https://example.com/world_history.jpg', subjectId: subjectIds[2] },
   ]);
 
@@ -33,11 +34,11 @@ async function seed() {
   const branchIds = branchRows.map((row) => row.id);
 
   await db.insert(levels).values([
-    { title: 'Introduction to Algebra', route: '1', branchId: branchIds[0] },
-    { title: 'Advanced Algebra', route: '1', branchId: branchIds[0] },
-    { title: 'Classical Mechanics', route: '1', branchId: branchIds[2] },
-    { title: 'Quantum Mechanics', route: '2', branchId: branchIds[2] },
-    { title: 'Organic Chemistry', route: '2', branchId: branchIds[3] },
+    { title: '1', route: '1', branchId: branchIds[0] },
+    { title: '2', route: '2', branchId: branchIds[0] },
+    { title: '3', route: '3', branchId: branchIds[1] },
+    { title: '2', route: '2', branchId: branchIds[1] },
+    { title: '3', route: '3', branchId: branchIds[2] },
   ]);
 
   const levelRows = await db.select().from(levels);
