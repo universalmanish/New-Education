@@ -5,3 +5,7 @@ export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs))
 }
 
+
+// command for the database seeding
+// npx tsx ./db/seed.ts
+

@@ -7,10 +7,10 @@ export const runtime = 'edge'
 
 const app = new Hono().basePath('/api')
 
-app.get('/1',  async (c) => {
-  const data = await db.select().from(subject)
-  return c.json(data)
-})
+// app.get('/sidebardata',  async (c) => {
+//   const data = await db.select().from(subject)
+//   return c.json(data)
+// })
 
 export const GET = handle(app)
 export const POST = handle(app)

@@ -20,10 +20,9 @@ export const SidebarItem = ({href, data}: Props) => {
             <div className="mt-14 pt-5 flex flex-col gap-y-3">
                 {data.map(sub => (
                     <Link key={sub.id} href={sub.route}>
-                        <ShinyButton text={sub.title} className={cn("h-[60px] w-full text-start hover:bg-white/10", href === sub.route ? "bg-white/10" : "" )} />
+                        <ShinyButton text={sub.title} className={cn("h-[60px] w-full text-start hover:bg-white/10", href === sub.route ? "bg-white/20" : "" )} />
                     </Link>
                 ))}
-
             </div>
         </div>
     )

@@ -3,30 +3,35 @@ import React, { useState, useEffect } from 'react';
 import { usePathname } from 'next/navigation';
 import { Sidebar } from '@/components/sidebar';
 import { Navbar } from '@/components/navbar';
+import { sidebarData } from '@/db/queries';
+import { countSlashes, lastItem, routeItem } from '@/lib/route-finder';
 
 
 // Define the correct type for your data
-type SidebarProps =  {
+type SidebarProps = {
   id: number;
   title: string;
   route: string;
-}
+};
 
 const SubjectLayout = ({ children }: { children: React.ReactNode }) => {
-  const pathname = usePathname();
+  const pathName = usePathname();
   const [data, setData] = useState<SidebarProps[] | null>(null);
   const [loading, setLoading] = useState(true);
+  const countSlash = countSlashes(pathName)
+  const routeItems = routeItem(pathName)
+  const lastItems = lastItem(pathName)
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch("/api/1");
-        if (!response.ok) {
-          throw new Error('Failed to fetch data');
-        }
-        const result: SidebarProps[] = await response.json();
-        setData(result);
+        const response = await sidebarData(countSlash, routeItems);
+        if (response === undefined) {
+          setData(null);
+      } else {
+          setData(response);
+      }
       } catch (error) {
         console.error('Error fetching data:', error);
         setData(null);
@@ -36,11 +41,13 @@ const SubjectLayout = ({ children }: { children: React.ReactNode }) => {
     };
 
     fetchData();
-  }, [pathname]);
+  }, [countSlash, routeItems]);
+   
+  if (!data) return null
 
   return (
     <div className="h-full w-full">
-      {data && <Sidebar href={pathname} data={data} />}
+      {data && <Sidebar href={lastItems} data={data} />}
       <Navbar />
       {children}
     </div>

@@ -4,9 +4,9 @@ import { SidebarItem } from "./sidebar-item"
 type Props = {
   href: string,
   data: {
-      id: number;
-      title: string;
-      route: string;
+    id: number;
+    title: string;
+    route: string;
   }[];
 };
 
