@@ -47,7 +47,12 @@ const SubjectLayout = ({ children }: { children: React.ReactNode }) => {
 
   return (
     <div className="h-full w-full">
-      {data && <Sidebar href={lastItems} data={data} onlyLevels={countSlash === 3}/>}
+      {data && 
+      <Sidebar 
+        className='border-r hidden lg:flex z-5'
+        href={lastItems} 
+        data={data} 
+        onlyLevels={countSlash === 3}/>}
       <Navbar />
       {children}
     </div>

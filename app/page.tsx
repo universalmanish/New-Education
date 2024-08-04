@@ -1,18 +1,21 @@
 "use client"
 import { Background } from "@/components/Background";
+import { MobileSidebar } from "@/components/mobile-sidebar";
 import { Navbar } from "@/components/navbar";
-import { db } from "@/db/db";
 
-export default function Home() {  
+export default function Home() {
   return (
-    <div className="">
+    <div>
       <Navbar/>
-      <div>
+      <div className="">
         <Background />
       </div>
       <div className="w-full h-[400px] bg-black">
         Manish
+        <MobileSidebar />
       </div>
+
     </div>
+
   )
 }

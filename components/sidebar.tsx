@@ -1,8 +1,10 @@
+import { cn } from "@/lib/utils";
 import { SidebarItem } from "./sidebar-item"
 
 
 type Props = {
   href: string,
+  className?: string,
   onlyLevels?: boolean;
   data: {
     id: number;
@@ -11,9 +13,9 @@ type Props = {
   }[];
 };
 
-export const Sidebar = ({href, data, onlyLevels}:Props) => {
+export const Sidebar = ({href, data, onlyLevels, className}:Props) => {
     return (
-        <div className="fixed h-full bg-white dark:bg-black border-r lg:w-[320px] z-5 hidden lg:flex">
+        <div className={cn("fixed h-full bg-white dark:bg-black lg:w-[320px]", className)}>
           <SidebarItem href={href} data={data} onlyLevel={onlyLevels}/>
         </div>
     )

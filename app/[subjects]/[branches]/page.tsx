@@ -43,12 +43,12 @@ const LevelPage = () => {
     if (!data) return null
 
     return (
-        <div className="p-5 pt-[90px] h-full bg-white dark:bg-black lg:pl-[350px] overflow-y-auto">
-            <div className="flex items-center justify-center">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 lg:gap-8 sm:gap-9">
-                {data.map((i) => (
+        <div className="p-5 pt-[90px] h-full bg-white overflow-y-auto dark:bg-black lg:pl-[350px]">
+            <div className="flex justify-around">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-9 md:gap-[70px] gap-[50px]">
+                    {data.map((i) => (
                         <Link key={i.id} href={`${pathName}/${i.route}`}>
-                            <LevelCard title={i.title}/>
+                            <LevelCard title={i.title} />
                         </Link>
                     ))}
                 </div>
