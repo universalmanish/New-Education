@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation"
 import { useEffect, useState } from "react"
 import { countSlashes, lastItem, routeItem } from "@/lib/route-finder"
 import { sidebarData } from "@/db/queries"
+import { Button } from "./ui/button"
 
 type Props = {
     id: number;
@@ -22,7 +23,6 @@ export const MobileSidebar = () => {
     const lastItems = lastItem(pathName)
     const { onOpen, isOpen, onClose } = useSidebar()
     
-
     useEffect(() => {
         const fetchData = async () => {
             setLoading(true);
@@ -47,16 +47,17 @@ export const MobileSidebar = () => {
     if (!data) return null
 
     return (
-        <div className="flex">
+        <div className="relative">
             <Sheet open={isOpen} onOpenChange={onClose}>
                 <SheetContent side="left" className="bg-black">
-                    <SheetHeader className="">
-                        {data && 
-                        <Sidebar
-                         className="bg-green-300 w-[330px]"
-                         href={lastItems} 
-                         data={data} 
-                         onlyLevels={countSlash === 3} />}
+                    <div className="absolute z-20 mt-5 border-t-2 w-full left-0 bg-white" />
+                    <SheetHeader className="w-[385px]">
+                        {data &&
+                            <Sidebar
+                                className="w-[330px] top-9 pt-0"
+                                href={lastItems}
+                                data={data}
+                                onlyLevels={countSlash === 3} />}
                     </SheetHeader>
                 </SheetContent>
             </Sheet>

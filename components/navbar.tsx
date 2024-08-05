@@ -21,7 +21,7 @@ export const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed border-b top-0 left-0 right-0 z-50 transition-all duration-300 shadow-lg ${isScrolled ? 'bg-white  backdrop-blur-sm shadow-lg' : 'bg-white dark:bg-gray-800'
+    <nav className={`fixed border-b top-0 left-0 right-0 z-50 transition-all duration-300 shadow-lg ${isScrolled ? 'bg-gray-800  backdrop-blur-sm shadow-lg' : 'bg-white dark:bg-gray-800'
       }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
