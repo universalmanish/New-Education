@@ -49,12 +49,12 @@ export const MobileSidebar = () => {
     return (
         <div className="relative">
             <Sheet open={isOpen} onOpenChange={onClose}>
-                <SheetContent side="left" className="bg-black">
-                    <div className="absolute z-20 mt-5 border-t-2 w-full left-0 bg-white" />
+                <SheetContent side="left" className="bg-white dark:bg-black">
+                    <div className="absolute z-20 mt-5 border-t w-full left-0 bg-white" />
                     <SheetHeader className="w-[385px]">
                         {data &&
                             <Sidebar
-                                className="w-[330px] top-9 pt-0"
+                                className="w-[330px] top-12 pt-0"
                                 href={lastItems}
                                 data={data}
                                 onlyLevels={countSlash === 3} />}
